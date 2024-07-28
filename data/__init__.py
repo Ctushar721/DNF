@@ -7,6 +7,7 @@ from .datasets import dataset_folder
 
 def get_dataset(opt):
     dset_lst = []
+    print(f'opt2: {opt.classes}')
     for cls in opt.classes:
         root = opt.dataroot + '/' + cls
         dset = dataset_folder(opt, root)
