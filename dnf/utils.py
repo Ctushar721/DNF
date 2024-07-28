@@ -63,6 +63,7 @@ rz_dict = {'bilinear': InterpolationMode.BILINEAR,
 
 class _DNFDataset(datasets.ImageFolder):
     def __init__(self, opt):
+        print(f'utils.py line 66 {opt.dataroot}')
         super().__init__(opt.dataroot)
         
         self.root = opt.dataroot
