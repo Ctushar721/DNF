@@ -29,14 +29,15 @@ for v_id, val in enumerate(vals):
     print(f'opt.dataroot 29 {opt.dataroot}')
     opt.classes = [''] if '0_real' in os.listdir(opt.dataroot) else os.listdir(opt.dataroot)
     opt.no_resize = True    # testing without resizing by default
-    print(f'opt.classes :{opt.classes }')
+    print(f'opt.classes 32 :{opt.classes }')
     model = resnet50(num_classes=1)
     state_dict = torch.load(model_path, map_location='cpu')
     model.load_state_dict(state_dict['model'])
     model.cuda()
     model.eval()
 
-    acc, ap, r_acc, f_acc, _, _ = validate(model, opt)
+    acc, ap, r_acc, f_acc, y_true, y_pred = validate(model, opt)
+    print(f'y_true {y_true} and y_pred {y_pred}')
     rows.append([val, acc, ap])
     print("({}) acc: {}; ap: {}".format(val, acc, ap))
 
