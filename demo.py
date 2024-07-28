@@ -42,6 +42,8 @@ with torch.no_grad():
     in_tens = img.unsqueeze(0)
     if(not opt.use_cpu):
     	in_tens = in_tens.cuda()
-    prob = model(in_tens).sigmoid().item()
+    prob_raw = model(in_tens)
+    print(f'prob_raw {prob_raw}')
+    prob = prob_raw.sigmoid().item()
 
 print('probability of being synthetic: {:.2f}%'.format(prob * 100))
