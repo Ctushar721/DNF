@@ -29,7 +29,7 @@ for v_id, val in enumerate(vals):
     print(f'opt.dataroot 29 {opt.dataroot}')
     opt.classes = [''] if '0_real' in os.listdir(opt.dataroot) else os.listdir(opt.dataroot)
     opt.no_resize = True    # testing without resizing by default
-
+    print(f'opt.classes :{opt.classes }')
     model = resnet50(num_classes=1)
     state_dict = torch.load(model_path, map_location='cpu')
     model.load_state_dict(state_dict['model'])
