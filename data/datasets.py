@@ -42,7 +42,7 @@ def binary_dataset(opt, root):
         rz_func = rz_func = transforms.Resize((opt.loadSize, opt.loadSize), interpolation=rz_dict[opt.rz_interp])
     else:
         rz_func = transforms.Resize((opt.loadSize, opt.loadSize), interpolation=rz_dict[opt.rz_interp])
-
+    print(f'dataset.py, ${root}')
     dset = datasets.ImageFolder(
             root,
             transforms.Compose([
