@@ -17,10 +17,13 @@ rows = [["{} model testing on...".format(model_name)],
 # dataroot = os.path.join(opt.dataroot, 'test')
 # vals = os.listdir(os.path.join(opt.dataroot, 'test'))
 # except:
+print(f'opt.dataroot OG {opt.dataroot}')
 dataroot = opt.dataroot
 vals = os.listdir(opt.dataroot)
 print("{} model testing on...".format(model_name))
+print(f'vals: {vals}')
 for v_id, val in enumerate(vals):
+    print(f'vals: {vals}')
     opt.dataroot = '{}/{}'.format(dataroot, val)
     # opt.classes = os.listdir(opt.dataroot) if multiclass[v_id] else ['']
     print(f'opt.dataroot {opt.dataroot}')
