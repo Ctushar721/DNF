@@ -23,6 +23,7 @@ print("{} model testing on...".format(model_name))
 for v_id, val in enumerate(vals):
     opt.dataroot = '{}/{}'.format(dataroot, val)
     # opt.classes = os.listdir(opt.dataroot) if multiclass[v_id] else ['']
+    print(f'opt.dataroot {opt.dataroot}')
     opt.classes = [''] if '0_real' in os.listdir(opt.dataroot) else os.listdir(opt.dataroot)
     opt.no_resize = True    # testing without resizing by default
 
