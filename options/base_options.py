@@ -102,6 +102,7 @@ class BaseOptions():
             torch.cuda.set_device(opt.gpu_ids[0])
 
         # additional
+        print(f'opt.clases {opt.classes}')
         opt.classes = opt.classes.split(',')
         # opt.rz_interp = opt.rz_interp.split(',')
         opt.blur_sig = [float(s) for s in opt.blur_sig.split(',')]
