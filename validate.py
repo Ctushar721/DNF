@@ -42,6 +42,18 @@ def validate(model, opt):
         f_acc = accuracy_score(y_true[y_true==1], y_pred[y_true==1] > 0.5)
         acc = accuracy_score(y_true, y_pred > 0.5)
         ap = average_precision_score(y_true, y_pred)
+        # True Positives
+        TP = np.sum((y_true == 1) & (y_pred == 1))
+        # True Negatives
+        TN = np.sum((y_true == 0) & (y_pred == 0))
+        # False Positives
+        FP = np.sum((y_true == 0) & (y_pred == 1))
+        # False Negatives
+        FN = np.sum((y_true == 1) & (y_pred == 0))
+        print(f'TP: {TP}')
+        print(f'FP: {FP}')
+        print(f'FN: {FN}')
+        print(f'TN: {TN}')
         return acc, ap, r_acc, f_acc, y_true, y_pred
 
 
